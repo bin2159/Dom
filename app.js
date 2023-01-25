@@ -16,8 +16,13 @@
 // header.style.border='solid 4px black'
 // let title = document.getElementById('title')
 // title.style.color='green'
-let list=document.getElementsByClassName('list-group-item')
-list[2].style.backgroundColor='green'
-for(let i=0;i<list.length;i++){
-    list[i].style.fontWeight='bold'
+// let list=document.getElementsByClassName('list-group-item')
+// list[2].style.backgroundColor='green'
+// for(let i=0;i<list.length;i++){
+//     list[i].style.fontWeight='bold'
+// }
+let li=document.getElementsByTagName('li')
+li[2].style.backgroundColor='green'
+for(let i=0;i<li.length;i++){
+    li[i].style.fontWeight='bold'
 }
