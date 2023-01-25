@@ -21,8 +21,19 @@
 // for(let i=0;i<list.length;i++){
 //     list[i].style.fontWeight='bold'
 // }
-let li=document.getElementsByTagName('li')
-li[2].style.backgroundColor='green'
-for(let i=0;i<li.length;i++){
-    li[i].style.fontWeight='bold'
+// let li=document.getElementsByTagName('li')
+// li[2].style.backgroundColor='green'
+// for(let i=0;i<li.length;i++){
+//     li[i].style.fontWeight='bold'
+//}
+let list=document.getElementsByClassName('list-group-item')
+list[1].style.backgroundColor='green'
+list[3].hidden='hidden'
+let queli =document.querySelectorAll('.list-group-item')
+for(let i=0;i<queli.length;i++){
+    queli[i].style.color='green'
+}
+let quel=document.querySelectorAll('.list-group-item:nth-child(odd)')
+for(let i=0;i<quel.length;i++){
+    quel[i].style.backgroundColor='coral'
 }
