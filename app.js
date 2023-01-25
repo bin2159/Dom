@@ -11,4 +11,8 @@ console.log(document.forms[0])
 console.log(document.links)
 console.log(document.images)
 var headerTitle = document.getElementById('header-title')
-console.log(headerTitle)
+headerTitle.style.fontFamily="Fantasy"
+let header = document.getElementById('main-header')
+header.style.border='solid 4px black'
+let title = document.getElementById('title')
+title.style.color='green'
