@@ -229,7 +229,8 @@ function addItem(e){
     
     //Get input value
     let newItem = document.getElementById('item').value
-
+    let description = document.getElementById('des').value
+    
     //Create new li Elemen
     let li =document.createElement('li')
 
@@ -238,7 +239,8 @@ function addItem(e){
 
     //Add text Node with Input value
     li.appendChild(document.createTextNode(newItem))
-    
+    li.appendChild(document.createTextNode(description))
+
     let edit=document.createElement('button')
     edit.className='btn btn-primary btn-sm float-right'
     edit.appendChild(document.createTextNode('Edit'))
@@ -256,6 +258,7 @@ function addItem(e){
     li.appendChild(edit)
 
     itemList.appendChild(li)
+    
 }
 
 //Remove Items
@@ -268,3 +271,20 @@ function removeItem(e){
     }
 }
 
+//Filter Items
+function filterItems(e){
+    //convert text to lowercase
+    let text=e.target.value.toLowerCase()
+    //Get list
+    let items=itemList.getElementsByTagName('li')
+    //Convert to an Array
+    Array.from(items).forEach(function(item){
+        let itemName=item.firstChild.textContent
+        let desName=item.childNodes[1].textContent
+        if(itemName.toLowerCase().indexOf(text)!=-1||desName.toLowerCase().indexOf(text)!=-1){
+            item.style.display='block'
+        }else{
+            item.style.display='none'
+        }
+    })
+}
