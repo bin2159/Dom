@@ -16,7 +16,19 @@ function store(e){
     console.log(myObj_deserialized)
     let span=document.createElement('span')
     let li=document.createElement('li')
+    let input=document.createElement('input')
+    input.type='button'
+    input.value='Delete'
     span.appendChild(document.createTextNode(myObj_deserialized.name+'----'+myObj_deserialized.email+'----'+myObj_deserialized.phone))
     li.appendChild(span)
-    form.appendChild(li)   
+    li.appendChild(input)
+    form.appendChild(li)
+    li.addEventListener('click',remove)
+    function remove(e){
+        if(e.target.value='delete'){
+                let item=e.target.parentElement
+                form.removeChild(item)
+                localStorage.removeItem('myObj')
+        }
+    }   
 }
