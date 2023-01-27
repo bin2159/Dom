@@ -7,9 +7,13 @@ function store(event){
     let phone=document.getElementById('tel').value
     let date=document.getElementById('date').value
     let time=document.getElementById('time').value
-    localStorage.setItem('Name',name)
-    localStorage.setItem('Email',email)
-    localStorage.setItem('Phone',phone)
-    localStorage.setItem('Date',date)
-    localStorage.setItem('Time',time)
+    let myObj={
+        name:name,
+        email:email,
+        phone:phone,
+        date:date,
+        time:time
+    }
+    let myObj_serialized=JSON.stringify(myObj)
+    localStorage.setItem('myObj',myObj_serialized)
 }
