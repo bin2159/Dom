@@ -11,8 +11,8 @@ function store(e){
         phone:phone
     }
     let myObj_serialized=JSON.stringify(myObj)
-    localStorage.setItem(myObj.name,myObj_serialized)
-    let myObj_deserialized=JSON.parse(localStorage.getItem(myObj.name))
+    localStorage.setItem(myObj.email,myObj_serialized)
+    let myObj_deserialized=JSON.parse(localStorage.getItem(myObj.email))
     let li=document.createElement('li')
     let deleteb=document.createElement('input')
     let edit=document.createElement('input')
@@ -25,17 +25,32 @@ function store(e){
     li.appendChild(edit)
     form.appendChild(li)
     li.addEventListener('click',remove)
+
     function remove(e){
         if(e.target.value='Delete'){
                 let item=e.target.parentElement
                 console.log(item)
                 form.removeChild(item)
-                localStorage.removeItem(myObj.name)
+                localStorage.removeItem(myObj.email)
         }
         
         if(e.target.value='Edit'){
+            console.log(myObj)
+            document.getElementById('name').value=myObj.name
+            document.getElementById('email').value=myObj.email
+            document.getElementById('tel').value=myObj.phone
             let item=e.target.parentElement
-            console.log(document.getElementById('name').value)
+            form.removeChild(item)
+            localStorage.removeItem(myObj.email)
         }
     }   
 }
+
+
+
+let multiply=function(x,y){
+    console.log(x*y)
+}
+
+let multiplybytwo=multiply.bind(this,2)
+multiplybytwo(5)
