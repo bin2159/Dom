@@ -34,7 +34,17 @@ function updatelastactivitytime(){
         },0)
     })   
 }
-Promise.all([createPosts({post:'post3'}),updatelastactivitytime()]).then((ms1,ms2)=>{
+function deletePost(){
+    return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        if(posts.length>0){
+            resolve(posts.pop())
+        }else{
+            reject('Array is empty now')
+        }
+    },1000)})
+}
+Promise.all([createPosts({post:'post3'}),updatelastactivitytime(),deletePost()]).then((ms1,ms2)=>{
     getPosts()
     console.log(ms1)
     console.log(ms2)
