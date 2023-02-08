@@ -11,7 +11,7 @@ function store(e){
         phone:phone
     }
     
-    axios.post('https://crudcrud.com/api/67233ef4155949f6a1756915c92c5c38/data',Obj)
+    axios.post('https://crudcrud.com/api/be71afd7996a400d8b945a5a88b6e263/data',Obj)
         .then((res)=>{
             console.log(res)
             showOnScreen(Obj)
@@ -23,7 +23,7 @@ function store(e){
 }
 getitem()
 function getitem(){
-    axios.get('https://crudcrud.com/api/67233ef4155949f6a1756915c92c5c38/data')
+    axios.get('https://crudcrud.com/api/be71afd7996a400d8b945a5a88b6e263/data')
     .then((res)=>{
         console.log(res)
         for(let i=0;i<res.data.length;i++){
@@ -54,7 +54,7 @@ function getitem(){
             if(e.target.value='Delete'){
                     let item=e.target.parentElement
                     console.log(item)
-                    axios.delete(`https://crudcrud.com/api/67233ef4155949f6a1756915c92c5c38/data/${myObj._id}`)
+                    axios.delete(`https://crudcrud.com/api/be71afd7996a400d8b945a5a88b6e263/data/${myObj._id}`)
                     .then((res)=>{
                         console.log(res)
                     })
@@ -64,15 +64,21 @@ function getitem(){
                     form.removeChild(item)
             }
             
-            // if(e.target.value='Edit'){
-            //     console.log(myObj)
-            //     document.getElementById('name').value=myObj.name
-            //     document.getElementById('email').value=myObj.email
-            //     document.getElementById('tel').value=myObj.phone
-            //     let item=e.target.parentElement
-            //     form.removeChild(item)
-            //     localStorage.removeItem(myObj.email)
-            // }
+            if(e.target.value='Edit'){
+                console.log(myObj)
+                document.getElementById('name').value=myObj.name
+                document.getElementById('email').value=myObj.email
+                document.getElementById('tel').value=myObj.phone
+                let item=e.target.parentElement
+                axios.delete(`https://crudcrud.com/api/be71afd7996a400d8b945a5a88b6e263/data/${myObj._id}`)
+                    .then((res)=>{
+                        console.log(res)
+                    })
+                    .catch((err)=>{
+                        console.log(err)
+                    })
+                    form.removeChild(item)
+            }
         } 
     }
         
